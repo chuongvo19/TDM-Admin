@@ -16,6 +16,7 @@ services:
     restart: unless-stopped
     ports:
       - "80:80"
+      - "81:81"
       # - "443:443"
     volumes:
       - ./nginx/config/app.conf:/etc/nginx/conf.d/app.conf
@@ -28,7 +29,7 @@ services:
       - app_network
 
   mysql:
-    image: mysql:5.7
+    image: mysql:8.0
     container_name: tdm_database_server
     restart: unless-stopped
     environment:
@@ -40,6 +41,20 @@ services:
       - "3307:3306"
     volumes:
       - ./mysql/data:/var/lib/mysql
+    networks:
+      - app_network
+  frontend:
+    build:
+      context: ..
+      dockerfile: infra/node/Dockerfile
+    container_name: nextjs_app
+    ports:
+      - "3000:3000"
+    volumes:
+      - ../frontend:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
     networks:
       - app_network
 
