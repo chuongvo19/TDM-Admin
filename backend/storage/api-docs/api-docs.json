@@ -1,0 +1,21 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "My API Documentation",
+        "description": "Swagger OpenAPI docs",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/hello": {
+            "get": {
+                "summary": "Hello endpoint",
+                "operationId": "943a99d74131bfa3aa388f01526e4b73",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        }
+    }
+}
