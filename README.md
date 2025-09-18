@@ -12,3 +12,8 @@ DB_PORT=3306
 DB_DATABASE=tdm_db
 DB_USERNAME=user
 DB_PASSWORD=password
+
+URL backend: backend.todolist-manager.com
+URL frontend: todolist-manager.com
+
+Container backend: docker exec -it tdm-web-container bash
